@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="demo.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/objexporter.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/ThreeBSP.js"></script>
+  </head>
+
+  <body onload="zahyou();first_canvas();">
+
+    <!-- メインページ -->
+    <div class="main">
+      <div class="main2">
+        <p class="title">3Dモデル作成</p>
+        <label for="target1"　id ="btn" class="btn1">
+          <span class="btn btn-primary btn1">
+            画像選択
+            <input type="file" id="target1" style="display:none">
+          </span>
+        </label>
+        <!-- <label for="target1"　id ="btn" class="btn btn-gradient">
+          <span>
+            画像選択
+            <input type="file" id="target1" style="display:none">
+          </span>
+        </label> -->
+        <button id="download1" type="button" class="btn btn-primary btn1">ダウンロード</button>
+        <button id="zahyou" type="button" class="btn btn-primary btn1">座標書き出し</button>
+        <label for="zahyouyomikomi"　id ="btn" class="btn1">
+          <span class="btn btn-primary btn1">
+            座標読み込み
+            <input type="file" id="zahyouyomikomi" style="display:none">
+          </span>
+        </label>
+        <form id="fishtype" onsubmit="return false;">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="maguro" onclick="typeclick();" checked> マグロ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="tai" onclick="typeclick();"> タイ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="aji" onclick="typeclick();"> アジ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="buri" onclick="typeclick();"> ブリ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="fugu" onclick="typeclick();"> フグ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="tara" onclick="typeclick();"> タラ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="chigodara" onclick="typeclick();"> チゴダラ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="sake" onclick="typeclick();"> サケ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="kinme" onclick="typeclick();"> キンメ
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" value="kawahagi" onclick="typeclick();"> カワハギ
+            </label>
+          </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" onclick="typeclick();" id="finlet" checked>
+          <label class="form-check-label" for="flexCheckChecked">小離鰭</label>
+        </div>
+        <div>
+          <img id="preview" class="preview">
+          <canvas id="canvas4" class="canvas"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <!--座標Modal -->
+    <div class="modal fade" id="sampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">座標の取得</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-kaisetu-left">
+              <div class="modal-kaisetu-img">
+                <img id ="kaisetu" class="kaisetu-photo" src="photo/doutai.PNG" >
+              </div>
+              <div>
+                <div class="tate">
+                  <div class="modal-kaisetu-num">
+                    <p class="next">次のポイントは</p>
+                    <h1 class="num" id="area1">1</h1>
+                    <!-- <div class="hitotumodoru">
+                      <button type="button" class="btn btn-primary" onClick="modoru()">一つ戻る</button>
+                    </div>
+                    <div class="skip">
+                      <button type="button" class="btn btn-primary" onClick="skip()">スキップ</button>
+                    </div> -->
+                  </div>
+                  <p class="area2" id="area2">青線は目の前縁</p>
+                  <p class="area2" id="area3">上顎の先端</p>
+                  <p class="area2" id="area4"></p>
+                </div>
+              </div>
+            </div>
+            <div class="image-3d">
+              <img id="target" width="0" height="0">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <label for="target1"　id ="btn">
+              <span class="btn btn-primary">
+                  画像選択
+                  <input type="file" id="target1" style="display:none">
+              </span>
+            </label>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1番最初のモーダル -->
+    <div class="modal fade bd-example-modal-xl" data-backdrop="static" id="saisyonoModal"　tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-fluid">
+        <div class="modal-content" style="width:1900px; margin-left: -700px; background: rgb(0, 0, 0);">
+          <div class="modal-body" style="background: rgb(0, 0, 0);">
+            <div class="modal-kaisetu">
+              <div class="center">
+                <img class="saisyo-photo" src="photo/tejun.jpg" >
+                <label for="target1"　id ="btn" class="sentaku-btn1">
+                  <span class="btn btn-primary sentaku-btn1">
+                    <h4>3Dにしたい魚の</h4>
+                    <h1>画像を選択</h1>
+                    <input type="file" id="target1" style="display:none">
+                  </span>
+                </label>
+              </div>
+              <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

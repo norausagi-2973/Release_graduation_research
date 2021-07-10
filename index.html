@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="photo/icon2.PNG">
+    <title>写真を簡単に3D化</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="zukan.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/ThreeBSP.js"></script>
+    <!-- ツイッターカード -->
+    <!-- <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="魚の写真を簡単に3D化">
+    <meta name="twitter:description" content="魚の写真を簡単に3D化できるサイト">
+    <meta name="twitter:image" content="5.カードに表示する画像のURL"> -->
+  </head>
+  <body onload="index();">
+    <!-- ナビバー -->
+    <div class="nav-center">
+      <div class="navbox">
+        <div class="logo">
+        </div>
+        <ul id="nav" class="nav_index">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="demo_d.html">3Dモデル作成</a></li>
+          <li><a href="zukan.html">3D魚図鑑</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main main_blue">
+      <div class="box1">
+        <h1 class="grey1 top-moji">簡単に魚の3Dモデルが作成、ダウンロードできるサイトです！</h1>
+        <div class="yoko-space">
+          <div>
+            <div class="box1-1">
+              <p class="grey1 box1-moji">1枚の写真から3Dモデルを作る</p>
+              <a href="demo_d.html" class="btn btn-gradient"><span>3Dモデル作成</span></a>
+            </div>
+            <div class="box1-1">
+              <p class="grey1 box1-moji">3Dモデルで作った魚図鑑</p>
+              <a href="zukan.html" class="btn btn-gradient"><span>3D魚図鑑</span></a>
+            </div>
+          </div>
+          <div>
+            <canvas id="canvas1" class="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="box2">
+        <p class="grey1 box2-moji">実際の動画</p>
+        <video src="./photo/kaisetu.mp4" controls class="vi"></video>
+      </div>
+    </div>
+    
+    <div class="main grey-back2">
+      <div class="box3">
+        <h2 class="grey1 moji2">3Dモデルの作り方</h2>
+        <div>
+          <div class="yoko-space">
+            <div class="box3-white">
+              <p class="step-moji grey1">1. 写真を選択</p>
+              <img class="step1" src="./photo/step1.PNG">
+            </div>
+            <div class="box3-white">
+              <p class="step-moji grey1">2. 特徴点を入力</p>
+              <img class="step2" src="./photo/step2.PNG">
+            </div>
+            <div class="box3-white">
+              <p class="step-moji grey1">3. 体型を選択</p>
+              <img class="step3" src="./photo/step3.jpg">
+            </div>
+          </div>
+          <div class="yoko-space">
+            <div class="box3-mojibox">
+              <div class="box3-moji">
+                <p class="grey1">3D化したい魚の写真を選択します。<br>左を向いていることが必要です。</p>
+              </div>
+            </div>
+            <div class="box3-mojibox">
+              <div class="box3-moji">
+                <p class="grey1">ガイドに従って魚の特徴点を<br>クリックで入力します。</p>
+              </div>
+            </div>
+            <div class="box3-mojibox">
+              <div class="box3-moji">
+                <p class="grey1">10種類の体型から<br>魚に合う体型を選択します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="box4">
+        <h2 class="grey1 moji2">3D化できる写真</h2>
+        <p class="grey1 box4-moji2">左を向いていること、真横からの写真、魚を正面から見た時に左右対称であることが必要です。</p>
+        <div class="yoko">
+          <div class="box4-white grey-back2">
+            <div class="yoko">
+              <img class="rei" src="./photo/ia_test.JPG">
+              <div class="rei-moji-box">
+                <img class="maru" src="./photo/maru.png">
+                <p class="box4-moji grey1">左を向いている<br>真横から撮っている<br>正面から見た時に左右対称</p>
+              </div>
+            </div>
+          </div>
+          <div class="box4-white grey-back2">
+            <div class="yoko">
+              <img class="rei" src="./photo/rei3.JPG">
+              <div class="rei-moji-box">
+                <img class="maru" src="./photo/batu.PNG">
+                <p class="box4-moji grey1">右を向いている</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="yoko">
+          <div class="box4-white grey-back2">
+            <div class="yoko">
+              <img class="rei" src="./photo/rei1.JPG">
+              <div class="rei-moji-box">
+                <img class="maru" src="./photo/batu.PNG">
+                <p class="box4-moji grey1">左右対称ではない</p>
+              </div>
+            </div>
+          </div>
+          <div class="box4-white grey-back2">
+            <div class="yoko">
+              <img class="rei" src="./photo/rei2.JPG">
+              <div class="rei-moji-box">
+                <img class="maru" src="./photo/batu.PNG">
+                <p class="box4-moji grey1">真横ではない</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main grey-back2">
+      <div class="box5">
+        <h2 class="grey1 moji2">選択できる体型</h2>
+        <div class="yoko-space">
+          <div class="box5-white">
+            <p class="box5-moji grey1">マグロ</p>
+            <img class="maguro" src="./photo/maguro.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">タイ</p>
+            <img class="tai" src="./photo/tai.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">ブリ</p>
+            <img class="buri" src="./photo/buri.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">アジ</p>
+            <img class="aji" src="./photo/aji.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">フグ</p>
+            <img class="fugu" src="./photo/fugu.PNG">
+          </div>
+        </div>
+        <div class="yoko-space">
+          <div class="box5-white">
+            <p class="box5-moji grey1">タラ</p>
+            <img class="tara" src="./photo/tara.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">チゴダラ</p>
+            <img class="chigodara" src="./photo/chigodara.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">サケ</p>
+            <img class="sake" src="./photo/sake.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">キンメダイ</p>
+            <img class="kinme" src="./photo/kinme.PNG">
+          </div>
+          <div class="box5-white">
+            <p class="box5-moji grey1">カワハギ</p>
+            <img class="kawahagi" src="./photo/kawahagi.PNG">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="main">
+      <div class="box6">
+        <h2 class="grey1 moji2">3D魚図鑑</h2>
+        <img class="box6-img" src="./photo/zukan.png">
+        <p class="grey1 box2-moji2">
+          左側は、上から和名、学名、その魚の生態や形態の解説が表示されます。<br>
+          右側の3Dモデルは、写真から作った3Dモデルです。ドラッグで360°動かすことができます。<br>
+        </p>
+      </div>
+    </div>
+
+    <div class="main grey-back2">
+      <div class="box7">
+        <div class="yoko-space">
+          <div class="box7-1">
+            <p class="grey1 moji2">写真から3Dモデルを作ってみる</p>
+            <a href="demo_d.html" class="btn btn-gradient"><span>3Dモデル作成</span></a>
+          </div>
+          <div class="box7-2">
+            <p class="grey1 moji2">3D魚図鑑を見てみる</p>
+            <a href="zukan.html" class="btn btn-gradient"><span>3D魚図鑑</span></a>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <div class="footer">
+      <div class="footer-1">
+        <p class="grey3">©︎ 2020 norausagi</p>
+      </div>
+      <div class="footer-2">
+
+        <div class="footer-2box">
+          <h2 class="footer-2-moji grey1">Share</h2>
+          <p class="footer-2-2-moji grey3">Facebook</p>
+          <a href="https://twitter.com/share"　class="twitter-share-button">
+            <p class="footer-2-2-moji grey3">Twitter</p>
+          </a>
+        </div>
+        
+        <div class="footer-2box">
+          <h2 class="footer-2-moji grey1">Menu</h2>
+          <a href="index.html"><p class="footer-2-2-moji grey3">ホーム</p></a>
+          <a href="demo_d.html"><p class="footer-2-2-moji grey3">3Dモデル作成</p></a>
+          <a href="zukan.html"><p class="footer-2-2-moji grey3">3D魚図鑑</p></a>
+        </div>
+        
+        <div class="footer-2box">
+          <h2 class="footer-2-moji grey1">Address</h2>
+          <p class="footer-2-2-moji grey3">北里大学</p>
+          <p class="footer-2-2-moji grey3">あああああああ</p>
+          <p class="footer-2-2-moji grey3">ああああああああ</p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

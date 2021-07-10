@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3D魚図鑑</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="photo/icon2.PNG">
+    <link rel="stylesheet" href="style.css">
+    <script src="zukan.js"></script>
+    <script src="js/three.js"></script>
+    <script src="js/controls/OrbitControls.js"></script>
+    <script src="js/ThreeBSP.js"></script>
+  </head>
+  <body onload="init1();">
+    <!-- ナビバー -->
+    <div class="nav-center">
+      <div class="navbox">
+        <div class="logo">
+          <p class="logo">3D魚図鑑</p>
+        </div>
+        <ul id="nav">
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="demo_d.html">3Dモデル作成</a></li>
+          <li><a href="zukan.html">3D魚図鑑</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main main_orange">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">ミナミマグロ</p>
+          <p class="gakumei">Southern bluefin tuna</p>
+          <p>体長は２mを超える。体は、紡錘形である。<br>
+            胸鰭は短いがクロマグロよりもやや長く細い。<br>
+            目もやや大きい。<br>
+            アジ、イワシ、イカ、オキアミなどの小魚を捕食する。<br>
+            クロマグロ、タイセイヨウクロマグロが主に<br>
+            北半球に生息しているのに対して、ミナミマグロは、<br>
+            南半球の温帯、亜寒帯域だけに生息する。<br>
+            小離鰭という背鰭と尾鰭の間の細かい鰭がある。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas1" class="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">マダイ</p>
+          <p class="gakumei">Pagrus major</p>
+          <p>体長は80~120cmほどで、体は、側扁平である。<br>
+            タイ科の中では大型で、重量は10kgを超える。<br>
+            小魚や、甲殻類 頭足類、貝類などを<br>
+            丈夫な犬歯と臼歯で捕食する。<br>
+            水深30mから200mの岩礁域や砂底に生息しており、<br>
+            太平洋の日本各地の沿岸と北海道以南の日本海、<br>
+            台湾や朝鮮半島沿岸、東シナ海、南シナ海に分布する。<br>
+            寿命は20年〜40年ほどとされている。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas2" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main main_orange">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">マアジ</p>
+          <p class="gakumei">Trachurus japonicus</p>
+          <p>全長30cmほどで、稜鱗と呼ばれる側面にある。<br>
+            硬い鱗が側線の全体にある。<br>
+            体は紡錘形で少し側扁している。<br>
+            食性は肉食で、動物プランクトン、甲殻類、<br>
+            イカ、カタクチイワシなどの小魚を捕食する。<br>
+            北西太平洋の固有種で、北海道から南シナ海、<br>
+            朝鮮半島沿岸などに分布する。<br>
+            中型・小型のものはサビキでよく釣れる。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas3" class="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">ブリ</p>
+          <p class="gakumei">Seriola quinqueradiata</p>
+          <p>全長は1mほどで、体は少し側扁した紡錘形である。<br>
+            肉食性で、甲殻類やイワシ類、アジ類、<br>
+            イカ類から大型の魚まで広く捕食する。<br>
+            生息域は、北海道〜九州南岸のオホーツク海、<br>
+            太平洋、瀬戸内海、日本海、東シナ海などに分布する。<br>
+            成長に応じて呼び名が変わる出世魚で、<br>
+            モジャコ（稚魚）→ワカシ（20cm以上）<br>
+            →イナダ（40cm以上）→ワラサ（60cm以上）<br>
+            →ブリ（80cm以上）に変わる。<br>
+          </p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas5" class="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main main_orange">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">クサフグ</p>
+          <p class="gakumei">Takifugu niphobles</p>
+          <p>全長20cmほどの小型のフグである。<br>
+            甲殻類、軟体動物、多毛類、魚類など<br>
+            動物質のものは何でも食べる。<br>
+            日本各地沿岸、八丈島、沖縄諸島に分布する。<br>
+            鰓孔後方に大きな暗色斑がある。<br>
+            砂底や砂泥底に多く見られ、砂の中によく潜りこむ。<br>
+            内臓だけでなく筋肉や精巣にも毒がある。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas6" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">スケトウダラ</p>
+          <p class="gakumei">Gadus chalcogrammus</p>
+          <p>最大で90cmほどになる。体はほぼ円筒形である。<br>
+            オキアミや小型の魚類、軟体類を食べる動物食。<br>
+            北海道全沿岸、青森県〜和歌山県白浜の太平洋沿岸、<br>
+            青森県〜山口県の日本海沿岸、オホーツク海、<br>
+            ベーリング海、北太平洋に分布し、<br>
+            水深0~2,000mの表・中層域に棲む。<br>
+            傷みやすく、ちくわ、かまぼこ、<br>
+            はんぺんなど練り製品の材料に使われる。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas11" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main main_orange">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">チゴダラ</p>
+          <p class="gakumei">Physiculus japonicus</p>
+          <p>体長は40cm程度で、体は細長く、<br>
+            前方は円筒状で尾部は側扁する。<br>
+            小魚、甲殻類など食べる動物食性である。<br>
+            函館以南の太平洋岸、東シナ海に分布する。<br>
+            水深150～650mの岩礁域およびその周辺の<br>
+            砂底域に生息するとされる。<br>
+            腹部には発光器を備え、下顎には髭がある。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas7" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">サケ</p>
+          <p class="gakumei">Oncorhynchus keta</p>
+          <p>体長は、5年で60～80cmになる。<br>
+            北太平洋、日本海、ベーリング海、オホーツク海、<br>
+            アラスカ湾全体、北極海に分布する。<br>
+            春に孵化した稚魚は、河川を降り、北上する。<br>
+            海で数年を過ごし成熟してくると南下して、<br>
+            生まれた河川を目指し、秋に遡上する。<br>
+            日本での遡上は、利根川、山口県以北の河川である。<br>
+            身が赤いのはエビやカニを多く捕食し、<br>
+            アスタキサンチンという色素が身に含まれているため。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas8" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main main_orange">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">キンメダイ</p>
+          <p class="gakumei">Beryx splendens</p>
+          <p>体長は、50cmを超える。体は平たく体高は高い。<br>
+            動物食性でハダカイワシ類などの魚類や<br>
+            イカ、エビ、アミ類などを捕食する。<br>
+            大西洋、インド-南米北部より北の<br>
+            東太平洋を除く太平洋に分布している。<br>
+            体色は鮮やかな赤色。<br>
+            網膜下にあるタペータムという層が<br>
+            光を反射したときに眼が金色に輝く。<br>
+            生息す深海では、この眼の性質で光を集める。</p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas9" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="main2">
+        <div class="kaisetu_box">
+          <p class="wamei">カワハギ</p>
+          <p class="gakumei">Stephanolepis cirrhifer</p>
+          <p>体長は、25cmほどである。<br>
+            体は、著しく側扁し、体高は高い。<br>
+            小型甲殻類やゴカイ類、貝類などを捕食する。<br>
+            口が小さいため、ついばんだり、<br>
+            吸い込むようにして食べる。<br>
+            青森県～九州までの日本各地沿岸、東シナ海に分布する。<br>
+            また、第1背びれは眼の後縁の上辺りにあり、<br>
+            太くて短い棘状になっている。<br>
+            </p>
+        </div>
+        <div>
+          <div>
+            <canvas id="canvas10" class="tai-canvas canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <div class="footer">
+      <div class="footer-1">
+        <!-- <img class="logo" src="photo/logo2.jpeg"> -->
+        <p class="grey3">©︎ 2020 norausagi</p>
+      </div>
+      <div class="footer-2">
+
+        <div class="footer-2box">
+          <h2 class="footer-2-moji grey1">Share</h2>
+          <p class="footer-2-2-moji grey3">Facebook</p>
+          <a href="https://twitter.com/share"　class="twitter-share-button">
+            <p class="footer-2-2-moji grey3">Twitter</p>
+          </a>
+        </div>
+        
+        <div class="footer-2box">
+          <h2 class="footer-2-moji grey1">Menu</h2>
+          <a href="index.html"><p class="footer-2-2-moji grey3">ホーム</p></a>
+          <a href="demo_d.html"><p class="footer-2-2-moji grey3">3Dモデル作成</p></a>
+          <a href="zukan.html"><p class="footer-2-2-moji grey3">3D魚図鑑</p></a>
+        </div>
+        
+        <div class="footer-2box">
+          <h2 class="footer-2-moji grey1">Address</h2>
+          <p class="footer-2-2-moji grey3">北里大学</p>
+          <p class="footer-2-2-moji grey3">あああああああ</p>
+          <p class="footer-2-2-moji grey3">ああああああああ</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

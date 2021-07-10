@@ -1,0 +1,594 @@
+/* bodyのスタイル */
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0px;
+  font-family: sans-serif ;
+}
+/* 文字の色 */
+.grey1{
+  color: rgb(87, 85, 85);
+}
+
+.grey3{
+  color: rgb(161, 160, 160);
+}
+
+.aka{
+  color: rgb(255, 89, 89);
+}
+
+.main_orange{
+  background-color: rgb(255, 236, 219)
+}
+
+.main_blue{
+  background-color: rgb(208, 239, 253)
+}
+
+a {
+  text-decoration:none; 
+}
+
+/* ナビバーのスタイル */
+.logo{
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 900;
+  color:rgb(99, 98, 98);
+  width: 300px;
+  margin: 0;
+}
+.nav-center{
+  display: flex;
+  justify-content:center;
+}
+.navbox{
+  display: flex;
+  width: 1000px;
+  justify-content:space-between;
+}
+
+#nav {
+  list-style: none;
+  margin: 30px;
+}
+#nav li {
+  width: 150px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+}
+#nav li a {
+  text-decoration: none;
+  font-size: 17px;
+  padding: 0px;
+  color: rgb(0, 0, 0);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  position: relative;
+  display: inline-block;
+}
+#nav li a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: rgb(189, 189, 202);
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform .3s;
+}
+#nav li a:hover::after {
+  transform: scale(1, 1);
+}
+
+/* メインのスタイル */
+.main{
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  padding-top: 40px;
+}
+
+.grey-back{
+  background-color: rgb(248, 248, 248);
+}
+.grey-back2{
+  background-color: rgb(247, 247, 247);
+}
+
+.moji2{
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  text-align: start;
+}
+
+.box1{
+  width: 1000px;
+  height: 440px;
+}
+
+.top-moji{
+  font-size: 30px;
+}
+.box1-moji{
+  font-size: 22px;
+  margin: 0;
+  padding-bottom: 10px;
+}
+.box1-1{
+  padding-top: 40px;
+}
+
+/* ビデオの段スタイル */
+.box2{
+  width: 1000px;
+  height: 500px;
+  padding-top: 20px;
+  text-align: center;
+}
+.box2-moji{
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.vi{
+  width: 600px;
+  padding-top: 20px;
+}
+
+/* 　説明の段のスタイル */
+.box3{
+  width: 1000px;
+  height: 630px;
+  text-align: center;
+}
+
+.yoko-space{
+  display: flex;
+  justify-content:space-between;
+}
+
+.yoko{
+  display: flex;
+}
+
+.box3-white{
+  height: 320px;
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px;
+}
+
+.box3-mojibox{
+  width: 300px;
+  padding-top: 30px;
+}
+.box3-moji{
+  text-align: start;
+  font-size: 15px;
+  padding-left: 20px;
+}
+.step1{
+  padding-top: 20px;
+  height: 200px;
+}
+.step2{
+  padding-top: 30px;
+  height: 180px;
+}
+.step3{
+  padding-top: 30px;
+  height: 170px;
+}
+
+.step-moji{
+  margin: 0;
+  font-size: 23px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* ３D化できる写真の解説の段のスタイル */
+.box4{
+  width: 1000px;
+  height: 650px;
+}
+
+.box4-white{
+  height: 190px;
+  width: 460px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.box4-moji{
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.box4-moji2{
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.rei{
+  height: 150px;
+  margin-top: 20px;
+  margin-left: 27px;
+}
+
+.rei-moji-box{
+  height: 150px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.maru{
+  height: 60px;
+}
+
+/* 体型の解説の段のスタイル */
+.box5{
+  width: 1000px;
+  height: 630px;
+  text-align: center;
+}
+
+.box5-white{
+  height: 200px;
+  width: 190px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+.box5-moji{
+  margin: 0;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.maguro{
+  height: 120px;
+}
+.tai{
+  height: 120px;
+}
+.buri{
+  height: 130px;
+}
+.aji{
+  height: 130px;
+}
+.fugu{
+  height: 90px;
+  padding-top: 25px;
+}
+
+.tara{
+  height: 120px;
+}
+.chigodara{
+  height: 120px;
+}
+.sake{
+  height: 120px;
+}
+.kinme{
+  height: 110px;
+  padding-top: 10px;
+}
+.kawahagi{
+  height: 120px;
+}
+
+/* 3D魚図鑑の解説の段のスタイル */
+.box6{
+  width: 1000px;
+  height: 580px;
+}
+.box6-img{
+  padding-bottom: 30px;
+  height: 320px;
+}
+
+/* ボタンの段のスタイル */
+.box7{
+  width: 1000px;
+  height: 200px;
+}
+.box7-1{
+  width: 600px;
+  height: 200px;
+  padding-top: 30px;
+}
+.box7-2{
+  width: 400px;
+  height: 200px;
+  padding-top: 30px;
+}
+
+/* フッターのスタイル */
+.footer{
+  height: 350px;
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  justify-content:center;
+}
+.footer-1{
+  width: 400px;
+  padding-top: 100px;
+}
+.footer-2{
+  display: flex;
+  justify-content:space-between; 
+  width: 600px;
+  padding-top: 100px;
+}
+.footer-2-moji{
+  margin: 0;
+  padding-bottom: 20px;
+}
+.footer-2-2-moji{
+  font-size: 14px;
+  padding: 3px;
+}
+.sns{
+  display: inline-block;
+  padding-right: 9px;
+}
+
+/* indexのボタンのスタイル */
+.btn {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+.btn-gradient {
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0;
+  background-color: rgb(79, 197, 252);
+}
+.btn-gradient:hover {
+  transform: translate(0, -2px);
+  color: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+/* 図鑑のスタイル */
+.main2{
+  width: 1000px;
+  display: flex;
+  height: 400px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.wamei{
+  font-size: 40px;
+  font-weight: 500;
+  color: rgb(224, 106, 0);
+  margin: 0;
+}
+.gakumei{
+  font-size: 20px;
+  font-style: italic;
+  color: rgb(99, 98, 98);
+  margin-bottom: 30px;
+}
+.kaisetu_box{
+  width: 400px;
+}
+p{
+  margin: 0;
+}
+
+/* 生成画面のスタイル */
+.main_seisei{
+  width: 1000px;
+}
+
+form {
+  width: 100%;
+  min-width: 320px;
+  max-width: 1000px;
+  border-radius: 3px;
+  padding-top: 8px;
+}
+
+.inline-radio {
+  display: flex;
+  overflow: hidden;
+}
+.inline-radio div {
+  position: relative;
+  flex: 1;
+}
+.inline-radio input {
+  width: 100%;
+  height: 40px;
+  opacity: 0;
+}
+.inline-radio label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #b6b6b6;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #b6b6b6;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+.inline-radio div:last-child label {
+  border-right: 0;
+}
+
+.inline-radio div:hover {
+  transform: translate(0, -2px);
+  color: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+
+.inline-radio input:checked + label {
+  background: rgb(79, 197, 252);
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.takasa{
+  height: 600px;
+}
+.preview{
+  padding: 3px;
+  position: absolute;
+  width: 200px;
+}
+
+/* 座標モーダルのスタイル */
+.modalArea {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30,30,30,0.9);
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 900px;
+  padding: 10px 30px;
+  background-color: #fff;
+  height : 96%;
+}
+.modalWrapper2{
+  position: absolute;
+  /* display: flex;
+  justify-content: center; */
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 900px;
+  padding: 10px 30px;
+  background-color: #fff;
+  height: 100px;
+  padding-top: 100px;
+}
+
+.taikei-btn{
+  height: 100px;
+}
+
+.modalContents{
+  display: flex;
+  height: 260px;
+}
+
+.closeModal {
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.kaisetu-img{
+  width: 320px;
+  max-height: 250px;
+}
+.modal-imgbox{
+  width: 350px;
+  height: 250px;
+  text-align: center;
+}
+.kaise-box{
+  width: 500px;
+}
+
+.next{
+  font-size: 25px;
+  padding-top: 20px;
+}
+.area2{
+  font-size: 16px;
+}
+.num{
+  width: 200px;
+  text-align: center;
+  padding-right: 100px;
+}
+.point-iro{
+  color: rgb(255, 101, 101);
+  margin: 0;
+}
+.point-size{
+  font-size: 50px;
+  padding-left: 10px;
+}
+.point-size2{
+  font-size: 25px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.form-check{
+  width: 100px;
+}
+.ma{
+  padding-top: 10px;
+}
+
+.syo{
+  font-size: 20px;
+}
+
+.seisei-btn{
+  padding-right: 8px;
+}
+
+/* 3dにしたい画像のスタイル */
+.image-3d{
+  padding-left: 20px;
+  padding-top: 5px;
+}
+.modal-kaisetu-left{
+  display: flex;
+}

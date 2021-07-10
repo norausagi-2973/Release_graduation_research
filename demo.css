@@ -1,0 +1,145 @@
+/* キャンバスをクリックした時の青枠を消す */
+*:focus {
+  outline: none;
+}
+
+/* メインのスタイル */
+.main{
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content:center;
+}
+
+.main2{
+  width: 1100px;
+}
+
+.title{
+  font-size: 60px;
+  margin-bottom: 0px;
+}
+
+.btn1{
+  width: 130px;
+}
+
+.preview{
+  padding: 3px;
+  position: absolute;
+  width: 200px;
+}
+
+.kaisetu-photo{
+  height: 300px;
+}
+
+/* 以下点打ちモーダル */
+/* モーダルの選択ボタン */
+.sentaku-btn1{
+  padding: 15px;
+  padding-left: 24px;
+  text-align: center;
+  width: 500px;
+}
+
+/* 点打ちモーダルの文字解説 */
+.modal-kaisetu-left{
+  display: flex;
+}
+
+/* 点打ちモーダルのナンバー */
+.num{
+  font-size: 60px;
+  color: rgb(255, 101, 101);
+  width: 150px;
+  text-align: center;
+}
+
+/* 3dにしたい画像のスタイル */
+.image-3d{
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+/* 各種ボタン */
+.hitotumodoru{
+  padding-bottom: 25px;
+  padding-left: 100px;
+}
+
+.skip{
+  padding-bottom: 25px;
+  padding-left: 3px;
+}
+
+/* 文字解説 */
+.modal-kaisetu-num{
+  display: flex;
+  align-items: flex-end;
+}
+
+.next{
+  font-size: 25px;
+}
+
+.area2{
+  font-size: 20px;
+}
+
+/* 文字解説を縦に並べている */
+.tate{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+/* 解説イラストのスタイル */
+.modal-kaisetu-img{
+  padding-left: 20px;
+  width: 650px;
+}
+
+.center{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 1番最初のモーダルの画像 */
+.saisyo-photo{
+  height: 800px;
+}
+
+/* label > input {
+  display:none;
+  }
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+.btn-gradient {
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 0;
+  background-color: rgb(79, 197, 252);
+}
+.btn-gradient:hover {
+  transform: translate(0, -2px);
+  color: #fff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .2);
+}
+ */
