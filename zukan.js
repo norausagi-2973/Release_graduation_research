@@ -214,6 +214,7 @@ function init1() {
   camera.position.set(400, 0, +1000);
   var w = 600;
   var h = 350;
+  /*
   init6(GYOSYU["maguro"],GYOSYU["maguro"].aa,1,w,h,GYOSYU["maguro"].finlet);
   init6(GYOSYU["tai"],GYOSYU["tai"].aa,2,w,h,GYOSYU["tai"].finlet);
   init6(GYOSYU["aji"],GYOSYU["aji"].aa,3,w,h,GYOSYU["aji"].finlet);
@@ -224,10 +225,10 @@ function init1() {
   init6(GYOSYU["sake"],GYOSYU["sake"].aa,8,w,h,GYOSYU["sake"].finlet);
   init6(GYOSYU["kinme"],GYOSYU["kinme"].aa,9,w,h,GYOSYU["kinme"].finlet);
   init6(GYOSYU["kawahagi"],GYOSYU["kawahagi"].aa,10,w,h,GYOSYU["kawahagi"].finlet);
+  */
 };
 
 function init6(gyosyu,aa,canvas_num,width1,height1,finlet) {
-  console.log("koreda!")
   const width = width1;
   const height = height1;
 
