@@ -343,7 +343,7 @@ $(function() {
       image.src = e.target.result;
     }
     document.getElementById("area1").innerText = "1";
-    document.getElementById("kaisetu").src = "photo/kaisetu1.PNG";
+    document.getElementById("kaisetu").src = "photo/kaisetu1.png";
     $('#zahyouModal').fadeIn();
     reader.readAsDataURL(file);
   });
