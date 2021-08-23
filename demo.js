@@ -258,7 +258,7 @@ function mojihenkou() {
     document.getElementById("area2").innerText = "青線は尾鰭の付け根";
   }
   if(aa.length <= 30){
-    document.getElementById("kaisetu").src = "photo/kaisetu1.PNG";
+    document.getElementById("kaisetu").src = "photo/kaisetu1.png";
   }else if(aa.length <= 40){
     document.getElementById("kaisetu").src = "photo/kaisetu3.png";
   }else if(aa.length <= 47){
@@ -343,7 +343,7 @@ $(function() {
       image.src = e.target.result;
     }
     document.getElementById("area1").innerText = "1";
-    document.getElementById("kaisetu").src = "photo/kaisetu1.PNG";
+    document.getElementById("kaisetu").src = "photo/kaisetu1.png";
     $('#zahyouModal').fadeIn();
     reader.readAsDataURL(file);
   });
