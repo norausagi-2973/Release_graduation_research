@@ -160,6 +160,8 @@ const GYOSYU = {
 
 var aa = [];
 
+console.log("aaaaaaa")
+
 // クリックで座標を取得するやつ
 function zahyou(){
   document.getElementById("aaa").onclick = handleMouseMove;
