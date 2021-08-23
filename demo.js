@@ -160,8 +160,6 @@ const GYOSYU = {
 
 var aa = [];
 
-console.log("aaaaaaa")
-
 // クリックで座標を取得するやつ
 function zahyou(){
   document.getElementById("aaa").onclick = handleMouseMove;
@@ -260,7 +258,7 @@ function mojihenkou() {
     document.getElementById("area2").innerText = "青線は尾鰭の付け根";
   }
   if(aa.length <= 30){
-    document.getElementById("kaisetu").src = "photo/kaisetu1.png";
+    document.getElementById("kaisetu").src = "photo/kaisetu1.PNG";
   }else if(aa.length <= 40){
     document.getElementById("kaisetu").src = "photo/kaisetu3.png";
   }else if(aa.length <= 47){
@@ -345,7 +343,7 @@ $(function() {
       image.src = e.target.result;
     }
     document.getElementById("area1").innerText = "1";
-    document.getElementById("kaisetu").src = "photo/kaisetu1.png";
+    document.getElementById("kaisetu").src = "photo/kaisetu1.PNG";
     $('#zahyouModal').fadeIn();
     reader.readAsDataURL(file);
   });
