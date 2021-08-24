@@ -1088,21 +1088,24 @@ function createmodel(gyosyu,aa,finlet,canvas_num) {
   }
 
   //ファイル書き出し
-  // document.getElementById("zahyou").onclick = function() {
-  //   var fishtype = document.getElementById('fishtype').options.value;
-  //   var finlet = document.getElementById('finlet').checked;
-  //   Data = {
-  //     aa: aa,
-  //     type: fishtype,
-  //     finlet: finlet
-  //   }
-  //   const fileName = "zahyou.json";
-  //   const data = JSON.stringify(Data);
-  //   const link = document.createElement("a");
-  //   link.href = "data:text/plain," + encodeURIComponent(data);
-  //   link.download = fileName;
-  //   link.click();
-  // };
+  document.getElementById("zahyou").onclick = function() {
+    file = document.querySelector('#target1').files[0]
+    name_num = file.name
+    num = name_num.split('.');
+    var fishtype = document.getElementById('fishtype').options.value;
+    var finlet = document.getElementById('finlet').checked;
+    Data = {
+      aa: aa,
+      type: fishtype,
+      finlet: finlet
+    }
+    const fileName = num[0]+".json";
+    const data = JSON.stringify(Data);
+    const link = document.createElement("a");
+    link.href = "data:text/plain," + encodeURIComponent(data);
+    link.download = fileName;
+    link.click();
+  };
 }
 
 function pointwotukuru(ue_x,ue_y,sita_x,sita_y,i,zenbunopoint,gyosyu) {
