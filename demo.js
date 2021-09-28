@@ -183,10 +183,12 @@ function handleMouseMove(event) {
   aa.push([x,y]);
   mojihenkou();
 }
-
+let startTime = Date.now();
+let endTime = Date.now();
 function mojihenkou() {
   console.log(aa)
   if (aa.length == 1) {
+    startTime = Date.now();
     document.getElementById("area3").innerText = "上顎の先端";
     document.getElementById("area4").innerText = "";
   }else if(aa.length == 2){
@@ -268,6 +270,8 @@ function mojihenkou() {
   }else if(aa.length <= 65){
     document.getElementById("kaisetu").src = "photo/kaisetu2.png";
   }else if(aa.length == 66){
+    endTime = Date.now();
+    alert("タイムは、"+(endTime - startTime)/1000 + "秒です");
     aa[1][0] = 0;
     aa[1][1] = 0;
     console.log("目完了!");
