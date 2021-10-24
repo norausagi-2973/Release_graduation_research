@@ -159,6 +159,7 @@ const GYOSYU = {
 };
 
 var aa = [];
+var img_iti =[];
 
 // クリックで座標を取得するやつ
 function zahyou(){
@@ -176,6 +177,8 @@ function handleMouseMove(event) {
   if (aa.length == 0 || aa.length == 1){
     var x = event.pageX;
     var y = event.pageY;
+    img_iti.push(event.offsetX)
+    img_iti.push(event.offsetY)
   }else{
     var x = event.pageX-aa[1][0];
     var y = -(event.pageY-aa[1][1]);
@@ -186,6 +189,7 @@ function handleMouseMove(event) {
 let startTime = Date.now();
 let endTime = Date.now();
 function mojihenkou() {
+  console.log(img_iti)
   console.log(aa)
   if (aa.length == 1) {
     startTime = Date.now();
@@ -1101,7 +1105,8 @@ function createmodel(gyosyu,aa,finlet,canvas_num) {
     Data = {
       aa: aa,
       type: fishtype,
-      finlet: finlet
+      finlet: finlet,
+      img_iti: img_iti
     }
     const fileName = num[0]+".json";
     const data = JSON.stringify(Data);
