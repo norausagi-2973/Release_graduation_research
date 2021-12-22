@@ -160,6 +160,7 @@ const GYOSYU = {
 
 var aa = [];
 var img_iti =[];
+var point_sakujo=[];
 
 // クリックで座標を取得するやつ
 function zahyou(){
@@ -172,6 +173,36 @@ function zahyou(){
   });
 }
 
+// クリックで座標を四角で表示するやつ
+function zahyou2(){
+  // キャンパスの要素を取得
+  const canvas = document.getElementById('point-canvas');
+  // 2次元の描画を行うメソッド
+  const ctx = canvas.getContext('2d');
+  // 座標とcanvasサイズを入れる用の変数
+  let x = 0;
+  let y = 0;
+  let w = canvas.width;
+  let h = canvas.height;
+  // 背景塗る
+  ctx.clearRect(0, 0, w, h);
+  let onClick = (e) => {
+      let rect = e.target.getBoundingClientRect();
+      // e.clientX(Y)がwindow左上からのクリックされた座標
+      // rect.left(top)がwindow左上からのcanvasの座標
+      x = e.clientX - rect.left;
+      y = e.clientY - rect.top;
+      draw();
+  }
+  const draw = () => {
+    console.log(x,y)
+      // クリックされた位置に描画処理
+      ctx.fillStyle = '#ff0000';
+      ctx.fillRect(x, y, 6, 6);
+  }
+  canvas.addEventListener('click', onClick, false);
+};
+
 function handleMouseMove(event) {
   event = event || window.event; // IE対応
   if (aa.length == 0 || aa.length == 1){
@@ -183,14 +214,16 @@ function handleMouseMove(event) {
     var x = event.pageX-aa[1][0];
     var y = -(event.pageY-aa[1][1]);
   }
+  point_sakujo.push([event.offsetX,event.offsetY]);
   aa.push([x,y]);
   mojihenkou();
 }
 let startTime = Date.now();
 let endTime = Date.now();
 function mojihenkou() {
-  console.log(img_iti)
-  console.log(aa)
+  // console.log(img_iti)
+  // console.log(aa)
+  console.log(point_sakujo)
   if (aa.length == 1) {
     startTime = Date.now();
     document.getElementById("area3").innerText = "上顎の先端";
@@ -345,6 +378,9 @@ $(function() {
                      .attr('width', width)
                      .attr('height', height)
                      .attr("src", e.target.result);
+        $('#point-canvas')
+                     .attr('width', width)
+                     .attr('height', height)
         $('#preview')
                      .attr("src", e.target.result);
       }
@@ -1195,8 +1231,11 @@ function pointwotukuru(ue_x,ue_y,sita_x,sita_y,i,zenbunopoint,gyosyu) {
 }
 
 function modoru() {
-  aa.pop();
+  if (aa.length != 1){
+    aa.pop();
+  }
   mojihenkou();
+  zahyou_modoru();
 }
 
 function skip() {
@@ -1239,3 +1278,14 @@ function skip() {
   }
   mojihenkou();
 }
+
+function zahyou_modoru(){
+  // キャンパスの要素を取得
+  const canvas = document.getElementById('point-canvas');
+  // 2次元の描画を行うメソッド
+  const ctx = canvas.getContext('2d');
+  ii = point_sakujo.pop();
+  console.log(ii)
+  console.log(point_sakujo)
+  ctx.clearRect(ii[0]-2, ii[1]-2, 8, 8);
+};

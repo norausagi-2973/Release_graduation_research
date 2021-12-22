@@ -584,10 +584,17 @@ a {
     padding-right: 8px;
   }
 
+  .point-canvas{
+    position:absolute;
+    top:5px;
+    left:20px;
+  }
+
   /* 3dにしたい画像のスタイル */
   .image-3d{
     padding-left: 20px;
     padding-top: 5px;
+    position: relative;
   }
   .modal-kaisetu-left{
     display: flex;
