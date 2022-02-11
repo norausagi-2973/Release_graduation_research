@@ -167,11 +167,13 @@ function zahyou(){
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
     $('#zahyouModal').fadeOut(400, function() {
+      $('html').css('overflow-y','auto'); 
       $('body').css('overflow-y','auto'); 
     });
   });
   $('#close-taikei-Modal , #modalBg').click(function(){
     $('#taikeiModal').fadeOut(400, function() {
+      $('html').css('overflow-y','auto'); 
       $('body').css('overflow-y','auto'); 
     });
   });
@@ -318,9 +320,11 @@ function mojihenkou() {
     console.log("目完了!");
     console.log(JSON.stringify(aa));
     $('#zahyouModal').fadeOut(400, function() {
+      $('html').css('overflow-y','auto'); 
       $('body').css('overflow-y','auto'); 
     });
     $('#taikeiModal').fadeIn(400, function() {
+      $('html').css('overflow-y','hidden'); 
       $('body').css('overflow-y', 'hidden'); 
     });
     var fishtype = document.getElementById('fishtype').options.value;
@@ -398,6 +402,7 @@ $(function() {
     document.getElementById("area1").innerText = "1";
     document.getElementById("kaisetu").src = "photo/kaisetu1.png";
     $('#zahyouModal').fadeIn(400, function() {
+      $('html').css('overflow-y','hidden'); 
       $('body').css('overflow-y', 'hidden'); 
     });
     reader.readAsDataURL(file);
@@ -421,6 +426,7 @@ $(function() {
 // 魚種選択ボタンを押した場合
 function typeclick() {
   $('#taikeiModal').fadeOut(400, function() {
+    $('html').css('overflow-y','auto'); 
     $('body').css('overflow-y','auto'); 
   });
   var fishtype = document.getElementById('fishtype').options.value;
@@ -434,6 +440,7 @@ function typeclick() {
 
 function typeclick2() {
   $('#taikeiModal').fadeOut(400, function() {
+    $('html').css('overflow-y','auto'); 
     $('body').css('overflow-y','auto'); 
   });
   var fishtype = document.getElementById('fishtype2').options.value;
