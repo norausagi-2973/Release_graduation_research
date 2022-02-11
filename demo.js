@@ -167,14 +167,12 @@ function zahyou(){
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
     $('#zahyouModal').fadeOut(400, function() {
-      $('html').css('overflow-y','auto'); 
-      $('body').css('overflow-y','auto'); 
+      bodyFixedOff();
     });
   });
   $('#close-taikei-Modal , #modalBg').click(function(){
     $('#taikeiModal').fadeOut(400, function() {
-      $('html').css('overflow-y','auto'); 
-      $('body').css('overflow-y','auto'); 
+      bodyFixedOff();
     });
   });
 }
@@ -320,17 +318,48 @@ function mojihenkou() {
     console.log("目完了!");
     console.log(JSON.stringify(aa));
     $('#zahyouModal').fadeOut(400, function() {
-      $('html').css('overflow-y','auto'); 
-      $('body').css('overflow-y','auto'); 
+      bodyFixedOff();
     });
     $('#taikeiModal').fadeIn(400, function() {
-      $('html').css('overflow-y','hidden'); 
-      $('body').css('overflow-y', 'hidden'); 
+      bodyFixedOn();
     });
     var fishtype = document.getElementById('fishtype').options.value;
     createmodel(GYOSYU[fishtype],aa,4);
   }
   document.getElementById("area1").innerText = `${aa.length}`;
+}
+
+
+//モーダルを開いた時のスクロール位置を保持
+var scrollPosition;
+//iOS（iPadOSを含む）かどうかのUA判定
+var ua = window.navigator.userAgent.toLowerCase();
+var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
+
+//bodyのスクロール固定
+function bodyFixedOn() {
+    if(isiOS){
+        // iOSの場合
+        scrollPosition = $(window).scrollTop();
+        $('body').css('position', 'fixed');
+        $('body').css('top', '-' + scrollPosition + 'px');
+    }else {
+        // それ以外
+        $('body').css('overflow', 'hidden');
+    }
+}
+
+//bodyのスクロール固定を解除
+function bodyFixedOff() {
+    if(isiOS){
+        // iOSの場合
+        $('body').css('position', '');
+        $('body').css('top', '');
+        $(window).scrollTop(scrollPosition);
+    }else {
+        // それ以外
+        $('body').css('overflow', '');
+    }
 }
 
 
@@ -402,8 +431,7 @@ $(function() {
     document.getElementById("area1").innerText = "1";
     document.getElementById("kaisetu").src = "photo/kaisetu1.png";
     $('#zahyouModal').fadeIn(400, function() {
-      $('html').css('overflow-y','hidden'); 
-      $('body').css('overflow-y', 'hidden'); 
+      bodyFixedOn();
     });
     reader.readAsDataURL(file);
   });
@@ -426,8 +454,7 @@ $(function() {
 // 魚種選択ボタンを押した場合
 function typeclick() {
   $('#taikeiModal').fadeOut(400, function() {
-    $('html').css('overflow-y','auto'); 
-    $('body').css('overflow-y','auto'); 
+    bodyFixedOff();
   });
   var fishtype = document.getElementById('fishtype').options.value;
   var finlet = document.getElementById('finlet').checked;
@@ -440,8 +467,7 @@ function typeclick() {
 
 function typeclick2() {
   $('#taikeiModal').fadeOut(400, function() {
-    $('html').css('overflow-y','auto'); 
-    $('body').css('overflow-y','auto'); 
+    bodyFixedOff();
   });
   var fishtype = document.getElementById('fishtype2').options.value;
   const type = ["maguro", "tai", "aji", "buri","fugu","tara","chigodara","sake","kinme","kawahagi"];

@@ -30,172 +30,174 @@
     </script>
   </head>
   <body onload="zahyou();first_canvas();zahyou2();">
-    <!-- ナビバー -->
-    <div class="nav-center">
-      <div class="navbox">
-        <div class="logo">
-          <p class="logo">3Dモデル作成</p>
+    <div class="content">
+      <!-- ナビバー -->
+      <div class="nav-center">
+        <div class="navbox">
+          <div class="logo">
+            <p class="logo">3Dモデル作成</p>
+          </div>
+          <ul id="nav">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="demo.html">3Dモデル作成</a></li>
+            <li><a href="zukan.html">3D魚図鑑</a></li>
+          </ul>
         </div>
-        <ul id="nav">
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="demo.html">3Dモデル作成</a></li>
-          <li><a href="zukan.html">3D魚図鑑</a></li>
-        </ul>
       </div>
-    </div>
 
-    <div class="main main_blue">
-      <div class="main_seisei">
-        <div class="yoko">
-          <div class="seisei-btn">
-            <label for="target1"　id ="btn" class="btn btn-gradient">
-              <span>
-                画像選択
-                <input type="file" id="target1" style="display:none">
-              </span>
-            </label>
-          </div>
-          <div class="seisei-btn">
-            <button id="download1" type="button" class="btn btn-gradient">ダウンロード</button>
-          </div>
-          <div class="seisei-btn">
-            <button id="zahyou" type="button" class="btn btn-gradient">座標書き出し</button>
-          </div>
-          <div class="seisei-btn">
-            <label for="zahyouyomikomi"　id ="btn" class="btn btn-gradient">
-              <span>
-                座標読み込み
-                <input type="file" id="zahyouyomikomi" style="display:none">
-              </span>
-            </label>
-          </div>
-          <div class="form-check seisei-btn">
-            <div class="ma">
-              <input  type="checkbox" onclick="typeclick();" id="finlet">
-              <label class="grey1 syo">小離鰭</label>
+      <div class="main main_blue">
+        <div class="main_seisei">
+          <div class="yoko">
+            <div class="seisei-btn">
+              <label for="target1"　id ="btn" class="btn btn-gradient">
+                <span>
+                  画像選択
+                  <input type="file" id="target1" style="display:none">
+                </span>
+              </label>
+            </div>
+            <div class="seisei-btn">
+              <button id="download1" type="button" class="btn btn-gradient">ダウンロード</button>
+            </div>
+            <div class="seisei-btn">
+              <button id="zahyou" type="button" class="btn btn-gradient">座標書き出し</button>
+            </div>
+            <div class="seisei-btn">
+              <label for="zahyouyomikomi"　id ="btn" class="btn btn-gradient">
+                <span>
+                  座標読み込み
+                  <input type="file" id="zahyouyomikomi" style="display:none">
+                </span>
+              </label>
+            </div>
+            <div class="form-check seisei-btn">
+              <div class="ma">
+                <input  type="checkbox" onclick="typeclick();" id="finlet">
+                <label class="grey1 syo">小離鰭</label>
+              </div>
             </div>
           </div>
-        </div>
-        <form id="fishtype" onsubmit="return false;">
-          <group class="inline-radio">
-            <div><input type="radio" name="options" value="maguro" onclick="typeclick();"><label>マグロ</label></div>
-            <div><input type="radio" name="options" value="tai" onclick="typeclick();"><label>タイ</label></div>
-            <div><input type="radio" name="options" value="aji" onclick="typeclick();"><label>アジ</label></div>
-            <div><input type="radio" name="options" value="buri" onclick="typeclick();"><label>ブリ</label></div>
-            <div><input type="radio" name="options" value="fugu" onclick="typeclick();"><label>フグ</label></div>
-            <div><input type="radio" name="options" value="tara" onclick="typeclick();"><label>タラ</label></div>
-            <div><input type="radio" name="options" value="chigodara" onclick="typeclick();"><label>チゴダラ</label></div>
-            <div><input type="radio" name="options" value="sake" onclick="typeclick();"><label>サケ</label></div>
-            <div><input type="radio" name="options" value="kinme" onclick="typeclick();"><label>キンメ</label></div>
-            <div><input type="radio" name="options" value="kawahagi" onclick="typeclick();"><label>カワハギ</label></div>
-          </group>
-        </form>
-        <div class="takasa">
-          <img id="preview" class="preview">
-          <canvas id="canvas4" class="canvas"></canvas>
+          <form id="fishtype" onsubmit="return false;">
+            <group class="inline-radio">
+              <div><input type="radio" name="options" value="maguro" onclick="typeclick();"><label>マグロ</label></div>
+              <div><input type="radio" name="options" value="tai" onclick="typeclick();"><label>タイ</label></div>
+              <div><input type="radio" name="options" value="aji" onclick="typeclick();"><label>アジ</label></div>
+              <div><input type="radio" name="options" value="buri" onclick="typeclick();"><label>ブリ</label></div>
+              <div><input type="radio" name="options" value="fugu" onclick="typeclick();"><label>フグ</label></div>
+              <div><input type="radio" name="options" value="tara" onclick="typeclick();"><label>タラ</label></div>
+              <div><input type="radio" name="options" value="chigodara" onclick="typeclick();"><label>チゴダラ</label></div>
+              <div><input type="radio" name="options" value="sake" onclick="typeclick();"><label>サケ</label></div>
+              <div><input type="radio" name="options" value="kinme" onclick="typeclick();"><label>キンメ</label></div>
+              <div><input type="radio" name="options" value="kawahagi" onclick="typeclick();"><label>カワハギ</label></div>
+            </group>
+          </form>
+          <div class="takasa">
+            <img id="preview" class="preview">
+            <canvas id="canvas4" class="canvas"></canvas>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 座標モーダル -->
-    <section id="zahyouModal" class="modalArea">
-      <div id="modalBg" class="modalBg"></div>
-      <div class="modalWrapper">
-          <div class="modalContents">
-            <div class="modal-kaisetu-left">
-              <div class="modal-imgbox">
-                <img id ="kaisetu" class="kaisetu-img" src="photo/kaisetu1.png" >
-              </div>
-              <div>
-                <div class="kaise-box">
-                  <div class="yoko-space">
-                    <p class="next grey1">次のポイントは</p>
-                    <div class="num yoko">
-                      <h1 class="point-iro point-size" id="area1">1</h1>
-                      <h3 class="point-iro point-size2">/65</h3>
+      <!-- 座標モーダル -->
+      <section id="zahyouModal" class="modalArea">
+        <div id="modalBg" class="modalBg"></div>
+        <div class="modalWrapper">
+            <div class="modalContents">
+              <div class="modal-kaisetu-left">
+                <div class="modal-imgbox">
+                  <img id ="kaisetu" class="kaisetu-img" src="photo/kaisetu1.png" >
+                </div>
+                <div>
+                  <div class="kaise-box">
+                    <div class="yoko-space">
+                      <p class="next grey1">次のポイントは</p>
+                      <div class="num yoko">
+                        <h1 class="point-iro point-size" id="area1">1</h1>
+                        <h3 class="point-iro point-size2">/65</h3>
+                      </div>
                     </div>
-                  </div>
-                  <div style="height: 130px;">
-                    <p class="area2 grey1" id="area2">青線は目の前縁</p>
-                    <p class="area2 grey1" id="area3">上顎の先端</p>
-                    <p class="area2 grey1" id="area4"></p>
-                  </div>
-                  <div class="yoko">
-                    <button type="button" class="btn btn-gradient" onClick="modoru()">一つ戻る</button>
-                    <button type="button" class="btn btn-gradient" onClick="skip()">スキップ</button>
-                    <label for="target1"　id ="btn" class="btn btn-gradient">
-                      <span>
-                        画像再選択
-                        <input type="file" id="target1" style="display:none">
-                      </span>
-                    </label>
+                    <div style="height: 130px;">
+                      <p class="area2 grey1" id="area2">青線は目の前縁</p>
+                      <p class="area2 grey1" id="area3">上顎の先端</p>
+                      <p class="area2 grey1" id="area4"></p>
+                    </div>
+                    <div class="yoko">
+                      <button type="button" class="btn btn-gradient" onClick="modoru()">一つ戻る</button>
+                      <button type="button" class="btn btn-gradient" onClick="skip()">スキップ</button>
+                      <label for="target1"　id ="btn" class="btn btn-gradient">
+                        <span>
+                          画像再選択
+                          <input type="file" id="target1" style="display:none">
+                        </span>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div id="aaa" class="image-3d">
-            <img id="target" width="0" height="0">
-            <canvas id="point-canvas" class="point-canvas" width="0" height="0"></canvas>
-          </div>
-          <div id="closeModal" class="closeModal">
-            ×
-          </div>
-      </div>
-    </section>
-
-    <!-- 体型モーダル -->
-    <section id="taikeiModal" class="modalArea">
-      <div id="modalBg" class="modalBg"></div>
-      <div class="modalWrapper2">
-          <div class="modalContents">
-            <form id="fishtype2" class="taikei-btn" onsubmit="return false;">
-              <group class="inline-radio">
-                <div><input type="radio" name="options" value="maguro" onclick="typeclick2();"><label>マグロ</label></div>
-                <div><input type="radio" name="options" value="tai" onclick="typeclick2();"><label>タイ</label></div>
-                <div><input type="radio" name="options" value="aji" onclick="typeclick2();"><label>アジ</label></div>
-                <div><input type="radio" name="options" value="buri" onclick="typeclick2();"><label>ブリ</label></div>
-                <div><input type="radio" name="options" value="fugu" onclick="typeclick2();"><label>フグ</label></div>
-                <div><input type="radio" name="options" value="tara" onclick="typeclick2();"><label>タラ</label></div>
-                <div><input type="radio" name="options" value="chigodara" onclick="typeclick2();"><label>チゴダラ</label></div>
-                <div><input type="radio" name="options" value="sake" onclick="typeclick2();"><label>サケ</label></div>
-                <div><input type="radio" name="options" value="kinme" onclick="typeclick2();"><label>キンメ</label></div>
-                <div><input type="radio" name="options" value="kawahagi" onclick="typeclick2();"><label>カワハギ</label></div>
-              </group>
-            </form>
-          </div>
-          <div id="close-taikei-Modal" class="closeModal">
-            ×
-          </div>
-      </div>
-    </section>
-
-    <!-- フッター -->
-    <div class="footer">
-      <div class="footer-1">
-        <h2 class="footer-2-moji grey1">簡単に魚の3Dモデルが<br>作成、ダウンロード<br>できるサイト！！！🐱</h2>
-        <p class="grey3">©︎ 2021 norausagi</p>
-      </div>
-      <div class="footer-2">
-
-        <div class="footer-2box">
-          <h2 class="footer-2-moji grey1">Share</h2>
-          <a href="http://www.facebook.com/share.php?u=https://cis.clas.kitasato-u.ac.jp/ks3msdds/index.html" rel="nofollow" target="_blank"><p class="footer-2-2-moji grey3">Facebook</p></a>
-          <a href="https://twitter.com/share?url=https://cis.clas.kitasato-u.ac.jp/ks3msdds/index.html&text=簡単に魚の3Dモデルが作成、ダウンロードできるサイトです！"><p class="footer-2-2-moji grey3">Twitter</p></a>
+            <div id="aaa" class="image-3d">
+              <img id="target" width="0" height="0">
+              <canvas id="point-canvas" class="point-canvas" width="0" height="0"></canvas>
+            </div>
+            <div id="closeModal" class="closeModal">
+              ×
+            </div>
         </div>
-        
-        <div class="footer-2box">
-          <h2 class="footer-2-moji grey1">Menu</h2>
-          <a href="index.html"><p class="footer-2-2-moji grey3">ホーム</p></a>
-          <a href="demo.html"><p class="footer-2-2-moji grey3">3Dモデル作成</p></a>
-          <a href="zukan.html"><p class="footer-2-2-moji grey3">3D魚図鑑</p></a>
+      </section>
+
+      <!-- 体型モーダル -->
+      <section id="taikeiModal" class="modalArea">
+        <div id="modalBg" class="modalBg"></div>
+        <div class="modalWrapper2">
+            <div class="modalContents">
+              <form id="fishtype2" class="taikei-btn" onsubmit="return false;">
+                <group class="inline-radio">
+                  <div><input type="radio" name="options" value="maguro" onclick="typeclick2();"><label>マグロ</label></div>
+                  <div><input type="radio" name="options" value="tai" onclick="typeclick2();"><label>タイ</label></div>
+                  <div><input type="radio" name="options" value="aji" onclick="typeclick2();"><label>アジ</label></div>
+                  <div><input type="radio" name="options" value="buri" onclick="typeclick2();"><label>ブリ</label></div>
+                  <div><input type="radio" name="options" value="fugu" onclick="typeclick2();"><label>フグ</label></div>
+                  <div><input type="radio" name="options" value="tara" onclick="typeclick2();"><label>タラ</label></div>
+                  <div><input type="radio" name="options" value="chigodara" onclick="typeclick2();"><label>チゴダラ</label></div>
+                  <div><input type="radio" name="options" value="sake" onclick="typeclick2();"><label>サケ</label></div>
+                  <div><input type="radio" name="options" value="kinme" onclick="typeclick2();"><label>キンメ</label></div>
+                  <div><input type="radio" name="options" value="kawahagi" onclick="typeclick2();"><label>カワハギ</label></div>
+                </group>
+              </form>
+            </div>
+            <div id="close-taikei-Modal" class="closeModal">
+              ×
+            </div>
         </div>
-        
-        <div class="footer-2box">
-          <h2 class="footer-2-moji grey1">Address</h2>
-          <p class="footer-2-2-moji grey3">〒252-0373</p>
-          <p class="footer-2-2-moji grey3">神奈川県相模原市南区北里1-15-1</p>
-          <p class="footer-2-2-moji grey3">北里大学 相模原キャンパス</p>
+      </section>
+
+      <!-- フッター -->
+      <div class="footer">
+        <div class="footer-1">
+          <h2 class="footer-2-moji grey1">簡単に魚の3Dモデルが<br>作成、ダウンロード<br>できるサイト！！！🐱</h2>
+          <p class="grey3">©︎ 2021 norausagi</p>
+        </div>
+        <div class="footer-2">
+
+          <div class="footer-2box">
+            <h2 class="footer-2-moji grey1">Share</h2>
+            <a href="http://www.facebook.com/share.php?u=https://cis.clas.kitasato-u.ac.jp/ks3msdds/index.html" rel="nofollow" target="_blank"><p class="footer-2-2-moji grey3">Facebook</p></a>
+            <a href="https://twitter.com/share?url=https://cis.clas.kitasato-u.ac.jp/ks3msdds/index.html&text=簡単に魚の3Dモデルが作成、ダウンロードできるサイトです！"><p class="footer-2-2-moji grey3">Twitter</p></a>
+          </div>
+          
+          <div class="footer-2box">
+            <h2 class="footer-2-moji grey1">Menu</h2>
+            <a href="index.html"><p class="footer-2-2-moji grey3">ホーム</p></a>
+            <a href="demo.html"><p class="footer-2-2-moji grey3">3Dモデル作成</p></a>
+            <a href="zukan.html"><p class="footer-2-2-moji grey3">3D魚図鑑</p></a>
+          </div>
+          
+          <div class="footer-2box">
+            <h2 class="footer-2-moji grey1">Address</h2>
+            <p class="footer-2-2-moji grey3">〒252-0373</p>
+            <p class="footer-2-2-moji grey3">神奈川県相模原市南区北里1-15-1</p>
+            <p class="footer-2-2-moji grey3">北里大学 相模原キャンパス</p>
+          </div>
         </div>
       </div>
     </div>
