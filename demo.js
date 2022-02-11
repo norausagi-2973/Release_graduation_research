@@ -166,10 +166,14 @@ var point_sakujo=[];
 function zahyou(){
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
-    $('#zahyouModal').fadeOut();
+    $('#zahyouModal').fadeOut(400, function() {
+      $('body').css('overflow-y','auto'); 
+    });
   });
   $('#close-taikei-Modal , #modalBg').click(function(){
-    $('#taikeiModal').fadeOut();
+    $('#taikeiModal').fadeOut(400, function() {
+      $('body').css('overflow-y','auto'); 
+    });
   });
 }
 
@@ -313,13 +317,18 @@ function mojihenkou() {
     aa[1][1] = 0;
     console.log("目完了!");
     console.log(JSON.stringify(aa));
-    $('#zahyouModal').fadeOut();
-    $('#taikeiModal').fadeIn();
+    $('#zahyouModal').fadeOut(400, function() {
+      $('body').css('overflow-y','auto'); 
+    });
+    $('#taikeiModal').fadeIn(400, function() {
+      $('body').css('overflow-y', 'hidden'); 
+    });
     var fishtype = document.getElementById('fishtype').options.value;
     createmodel(GYOSYU[fishtype],aa,4);
   }
   document.getElementById("area1").innerText = `${aa.length}`;
 }
+
 
 // 最初に表示される何もない黒のキャンバス
 function first_canvas() {
@@ -388,7 +397,9 @@ $(function() {
     }
     document.getElementById("area1").innerText = "1";
     document.getElementById("kaisetu").src = "photo/kaisetu1.png";
-    $('#zahyouModal').fadeIn();
+    $('#zahyouModal').fadeIn(400, function() {
+      $('body').css('overflow-y', 'hidden'); 
+    });
     reader.readAsDataURL(file);
   });
 });
@@ -409,7 +420,9 @@ $(function() {
 
 // 魚種選択ボタンを押した場合
 function typeclick() {
-  $('#taikeiModal').fadeOut();
+  $('#taikeiModal').fadeOut(400, function() {
+    $('body').css('overflow-y','auto'); 
+  });
   var fishtype = document.getElementById('fishtype').options.value;
   var finlet = document.getElementById('finlet').checked;
   // if (aa.length >= 65) {
@@ -420,7 +433,9 @@ function typeclick() {
 }
 
 function typeclick2() {
-  $('#taikeiModal').fadeOut();
+  $('#taikeiModal').fadeOut(400, function() {
+    $('body').css('overflow-y','auto'); 
+  });
   var fishtype = document.getElementById('fishtype2').options.value;
   const type = ["maguro", "tai", "aji", "buri","fugu","tara","chigodara","sake","kinme","kawahagi"];
   var num = type.indexOf(fishtype);
