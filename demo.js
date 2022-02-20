@@ -175,6 +175,14 @@ function zahyou(){
       bodyFixedOff();
     });
   });
+  $('#tejun, #modalBg').click(function(){
+    $('#tejunModal').fadeIn();
+  });
+  $('#close-tejun-Modal , #modalBg').click(function(){
+    $('#tejunModal').fadeOut();
+  });
+  // document.getElementById("gazou_sentaku").style.display ="none";
+  document.getElementById("hyouji-3d").style.display ="none";
 }
 
 // クリックで座標を四角で表示するやつ
@@ -225,9 +233,6 @@ function handleMouseMove(event) {
 let startTime = Date.now();
 let endTime = Date.now();
 function mojihenkou() {
-  // console.log(img_iti)
-  // console.log(aa)
-  console.log(point_sakujo)
   if (aa.length == 1) {
     startTime = Date.now();
     document.getElementById("area3").innerText = "上顎の先端";
@@ -312,7 +317,7 @@ function mojihenkou() {
     document.getElementById("kaisetu").src = "photo/kaisetu2.png";
   }else if(aa.length == 66){
     endTime = Date.now();
-    alert("タイムは、"+(endTime - startTime)/1000 + "秒です");
+    alert("タイムは、"+(endTime - startTime)/1000 + "秒です(研究用)");
     aa[1][0] = 0;
     aa[1][1] = 0;
     console.log("目完了!");
@@ -324,6 +329,9 @@ function mojihenkou() {
       bodyFixedOn();
     });
     var fishtype = document.getElementById('fishtype').options.value;
+
+    document.getElementById("gazou_sentaku").style.display ="none";
+    document.getElementById("hyouji-3d").style.display ="block";
     createmodel(GYOSYU[fishtype],aa,4);
   }
   document.getElementById("area1").innerText = `${aa.length}`;
@@ -380,15 +388,37 @@ function first_canvas() {
 
 // 画像読み込み処理
 $(function() {
-  var file = null; // 選択されるファイル
   var blob = null; // 画像(BLOBデータ)
   const THUMBNAIL_WIDTH = 800; // 画像リサイズ後の横の長さの最大値
   const THUMBNAIL_HEIGHT = 450; // 画像リサイズ後の縦の長さの最大値
 
-  $('#target1').change(function(e){
+  // ドラッグ&ドロップエリア
+  var fileArea = document.getElementById('dragDropArea');
+  var fileInput = document.getElementById('target1');
+  fileArea.addEventListener('dragover', function(evt){
+    evt.preventDefault();
+    fileArea.classList.add('dragover');
+  });
+  fileArea.addEventListener('dragleave', function(evt){
+      evt.preventDefault();
+      fileArea.classList.remove('dragover');
+  });
+  fileArea.addEventListener('drop', function(evt){
+      evt.preventDefault();
+      fileArea.classList.remove('dragenter');
+      var files = evt.dataTransfer.files;
+      fileInput.files = files;
+      inputChange(files[0]);
+  });
+  // ボタンから入力
+  $('#target1').change(function(){
+    file = $(this).prop('files')[0];
+    inputChange(file);
+  });
+
+  function inputChange(file = null) {
     aa = [[0,0]];
     mojihenkou();
-    file = $(this).prop('files')[0];
     // 選択されたファイルが画像かどうか判定
     if (file.type != 'image/jpeg' && file.type != 'image/png') {
       // 画像でない場合は終了
@@ -434,7 +464,7 @@ $(function() {
       bodyFixedOn();
     });
     reader.readAsDataURL(file);
-  });
+  }
 });
 
 // 座標読み込み処理

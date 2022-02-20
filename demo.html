@@ -29,7 +29,8 @@
       gtag('config', 'G-9J1Q92G239');
     </script>
   </head>
-  <body onload="zahyou();first_canvas();zahyou2();">
+  <body onload="zahyou();zahyou2();">
+    <!-- first_canvas(); -->
     <div class="content">
       <!-- ナビバー -->
       <div class="nav-center">
@@ -48,55 +49,128 @@
       <div class="main main_blue">
         <div class="main_seisei">
           <div class="yoko">
-            <div class="seisei-btn">
-              <label for="target1"　id ="btn" class="btn btn-gradient">
-                <span>
-                  画像選択
-                  <input type="file" id="target1" style="display:none">
-                </span>
-              </label>
-            </div>
-            <div class="seisei-btn">
-              <button id="download1" type="button" class="btn btn-gradient">ダウンロード</button>
-            </div>
-            <div class="seisei-btn">
-              <button id="zahyou" type="button" class="btn btn-gradient">座標書き出し</button>
-            </div>
-            <div class="seisei-btn">
-              <label for="zahyouyomikomi"　id ="btn" class="btn btn-gradient">
-                <span>
-                  座標読み込み
-                  <input type="file" id="zahyouyomikomi" style="display:none">
-                </span>
-              </label>
-            </div>
-            <div class="form-check seisei-btn">
-              <div class="ma">
-                <input  type="checkbox" onclick="typeclick();" id="finlet">
-                <label class="grey1 syo">小離鰭</label>
-              </div>
+            <p id="tejun" class="footer-2-moji grey1" style="cursor: pointer;">3D化の手順 ><p>
+          </div>
+
+          <!-- ドラッグ&ドロップエリア -->
+          <div id="gazou_sentaku">
+            <div id="dragDropArea">
+                <div class="drag-drop-inside">
+                    <p class="drag-drop-info">3D化したい画像をドラッグ&ドロップまたは<br>下のボタンからアップロードして選択</p>
+                    <div class="seisei-btn">
+                      <label for="target1"　id ="btn" class="btn btn-gradient">
+                        <span>
+                          画像選択
+                          <input type="file" id="target1" style="display:none">
+                        </span>
+                      </label>
+                    </div>
+                    <div id="previewArea"></div>
+                </div>
             </div>
           </div>
-          <form id="fishtype" onsubmit="return false;">
-            <group class="inline-radio">
-              <div><input type="radio" name="options" value="maguro" onclick="typeclick();"><label>マグロ</label></div>
-              <div><input type="radio" name="options" value="tai" onclick="typeclick();"><label>タイ</label></div>
-              <div><input type="radio" name="options" value="aji" onclick="typeclick();"><label>アジ</label></div>
-              <div><input type="radio" name="options" value="buri" onclick="typeclick();"><label>ブリ</label></div>
-              <div><input type="radio" name="options" value="fugu" onclick="typeclick();"><label>フグ</label></div>
-              <div><input type="radio" name="options" value="tara" onclick="typeclick();"><label>タラ</label></div>
-              <div><input type="radio" name="options" value="chigodara" onclick="typeclick();"><label>チゴダラ</label></div>
-              <div><input type="radio" name="options" value="sake" onclick="typeclick();"><label>サケ</label></div>
-              <div><input type="radio" name="options" value="kinme" onclick="typeclick();"><label>キンメ</label></div>
-              <div><input type="radio" name="options" value="kawahagi" onclick="typeclick();"><label>カワハギ</label></div>
-            </group>
-          </form>
-          <div class="takasa">
-            <img id="preview" class="preview">
-            <canvas id="canvas4" class="canvas"></canvas>
+
+          <!-- 3dモデル表示エリア -->
+          <div id="hyouji-3d">
+            <div class="yoko">
+              <div class="seisei-btn">
+                <label for="target1"　id ="btn" class="btn btn-gradient">
+                  <span>
+                    画像選択
+                    <input type="file" id="target1" style="display:none">
+                  </span>
+                </label>
+              </div>
+              <div class="seisei-btn">
+                <button id="download1" type="button" class="btn btn-gradient">ダウンロード</button>
+              </div>
+              <div class="seisei-btn">
+                <button id="zahyou" type="button" class="btn btn-gradient">座標書き出し</button>
+              </div>
+              <div class="seisei-btn">
+                <label for="zahyouyomikomi"　id ="btn" class="btn btn-gradient">
+                  <span>
+                    座標読み込み
+                    <input type="file" id="zahyouyomikomi" style="display:none">
+                  </span>
+                </label>
+              </div>
+              <div class="form-check seisei-btn">
+                <div class="ma">
+                  <input  type="checkbox" onclick="typeclick();" id="finlet">
+                  <label class="grey1 syo">小離鰭</label>
+                </div>
+              </div>
+            </div>
+            <form id="fishtype" onsubmit="return false;">
+              <group class="inline-radio">
+                <div><input type="radio" name="options" value="maguro" onclick="typeclick();"><label>マグロ</label></div>
+                <div><input type="radio" name="options" value="tai" onclick="typeclick();"><label>タイ</label></div>
+                <div><input type="radio" name="options" value="aji" onclick="typeclick();"><label>アジ</label></div>
+                <div><input type="radio" name="options" value="buri" onclick="typeclick();"><label>ブリ</label></div>
+                <div><input type="radio" name="options" value="fugu" onclick="typeclick();"><label>フグ</label></div>
+                <div><input type="radio" name="options" value="tara" onclick="typeclick();"><label>タラ</label></div>
+                <div><input type="radio" name="options" value="chigodara" onclick="typeclick();"><label>チゴダラ</label></div>
+                <div><input type="radio" name="options" value="sake" onclick="typeclick();"><label>サケ</label></div>
+                <div><input type="radio" name="options" value="kinme" onclick="typeclick();"><label>キンメ</label></div>
+                <div><input type="radio" name="options" value="kawahagi" onclick="typeclick();"><label>カワハギ</label></div>
+              </group>
+            </form>
+            <div class="takasa">
+              <img id="preview" class="preview">
+              <canvas id="canvas4" class="canvas"></canvas>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- 3d化手順モーダル -->
+      <section id="tejunModal" class="modalArea">
+        <div id="modalBg" class="modalBg"></div>
+        <div class="modalWrapper3">
+            <div class="modalContents">
+              <div class="box3">
+                <h2 class="grey1 moji2">3D化の手順</h2>
+                <div>
+                  <div class="yoko-space">
+                    <div class="box3-white">
+                      <p class="step-moji grey1">1. 写真を選択</p>
+                      <img class="step1" src="./photo/step1.jpg">
+                    </div>
+                    <div class="box3-white">
+                      <p class="step-moji grey1">2. 特徴点を入力</p>
+                      <img class="step2" src="./photo/step2.jpg">
+                    </div>
+                    <div class="box3-white">
+                      <p class="step-moji grey1">3. 体型を選択</p>
+                      <img class="step3" src="./photo/step3.jpg">
+                    </div>
+                  </div>
+                  <div class="yoko-space">
+                    <div class="box3-mojibox">
+                      <div class="box3-moji">
+                        <p class="grey1">3D化したい魚の写真を選択します。<br>左を向いていることが必要です。</p>
+                      </div>
+                    </div>
+                    <div class="box3-mojibox">
+                      <div class="box3-moji">
+                        <p class="grey1">ガイドに従って魚の特徴点を<br>クリックで入力します。</p>
+                      </div>
+                    </div>
+                    <div class="box3-mojibox">
+                      <div class="box3-moji">
+                        <p class="grey1">10種類の体型から<br>魚に合う体型を選択します。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="close-tejun-Modal" class="closeModal">
+              ×
+            </div>
+        </div>
+      </section>
 
       <!-- 座標モーダル -->
       <section id="zahyouModal" class="modalArea">

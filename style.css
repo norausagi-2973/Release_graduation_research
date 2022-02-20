@@ -500,6 +500,7 @@ a {
     padding: 10px 30px;
     background-color: #fff;
     height : 96%;
+    overflow : auto;
   }
   .modalWrapper2{
     position: absolute;
@@ -511,6 +512,17 @@ a {
     background-color: #fff;
     height: 100px;
     padding-top: 100px;
+  }
+  .modalWrapper3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    width: 900px;
+    padding: 10px 30px;
+    background-color: rgb(247, 247, 247);
+    height : 96%;
+    overflow : auto;
   }
 
   .taikei-btn{
@@ -613,3 +625,24 @@ a {
    768-480     - タブレット縦長
    480-less    - スマホ
 --------------------------------------------*/
+
+/* ドラッグ&ドロップ */
+#gazou_sentaku{
+  height: 600px;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center; 
+}
+#dragDropArea{
+  background-color: #ffffff;
+  border: rgb(79, 197, 252) dashed 5px;
+  height: 350px;
+  width: 700px;
+  border-radius: 50px;
+  text-align: center;
+}
+#dragDropArea p{
+    color: #999;
+    font-weight: bold;
+    font-size: 18px;
+}
