@@ -500,7 +500,6 @@ a {
     padding: 10px 30px;
     background-color: #fff;
     height : 96%;
-    overflow : auto;
   }
   .modalWrapper2{
     position: absolute;
@@ -521,7 +520,7 @@ a {
     width: 900px;
     padding: 10px 30px;
     background-color: rgb(247, 247, 247);
-    height : 96%;
+    height : 600px;
     overflow : auto;
   }
 
@@ -628,7 +627,7 @@ a {
 
 /* ドラッグ&ドロップ */
 #gazou_sentaku{
-  height: 600px;
+  height: 500px;
   padding-top: 40px;
   display: flex;
   justify-content: center; 
@@ -639,10 +638,62 @@ a {
   height: 350px;
   width: 700px;
   border-radius: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center; 
 }
 #dragDropArea p{
-    color: #999;
-    font-weight: bold;
-    font-size: 18px;
+  color: rgb(87, 85, 85);
+  font-weight: bold;
+  font-size: 20px;
+}
+.drag-drop-info{
+  padding-top: 80px;
+}
+.dragDropArea-btn{
+  padding-top: 50px;
+  display: flex;
+  justify-content: center; 
+}
+.model-info{
+  padding-left: 7px;
+  color: rgb(114, 113, 113);
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration:underline;
+  padding-bottom: 10px;
+}
+.seisei-main{
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  padding-top: 20px;
+}
+
+/* 手順モーダル */
+.box3-white-tejun{
+  height: 320px;
+  width: 290px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+}
+.box3-mojibox-tejun{
+  width: 300px;
+  padding-top: 30px;
+}
+.box3-moji-tejun{
+  text-align: start;
+  font-size: 16px;
+  padding-left: 20px;
+}
+.tejun-moji{
+  font-size: 28px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  text-align: start;
+}
+.box3-tejun{
+  width: 900px;
+  height: 550px;
+  text-align: center;
 }

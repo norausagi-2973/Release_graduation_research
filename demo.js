@@ -164,6 +164,7 @@ var point_sakujo=[];
 
 // クリックで座標を取得するやつ
 function zahyou(){
+  document.getElementById("hyouji-3d").style.display ="none";
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
     $('#zahyouModal').fadeOut(400, function() {
@@ -181,8 +182,6 @@ function zahyou(){
   $('#close-tejun-Modal , #modalBg').click(function(){
     $('#tejunModal').fadeOut();
   });
-  // document.getElementById("gazou_sentaku").style.display ="none";
-  document.getElementById("hyouji-3d").style.display ="none";
 }
 
 // クリックで座標を四角で表示するやつ
