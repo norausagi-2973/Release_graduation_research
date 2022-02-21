@@ -158,6 +158,39 @@ const GYOSYU = {
   }
 };
 
+//モーダルを開いた時のスクロール位置を保持
+var scrollPosition;
+//iOS（iPadOSを含む）かどうかのUA判定
+var ua = window.navigator.userAgent.toLowerCase();
+var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
+
+console.log(ua)
+//bodyのスクロール固定
+function bodyFixedOn() {
+    if(isiOS){
+        // iOSの場合
+        scrollPosition = $(window).scrollTop();
+        $('body').css('position', 'fixed');
+        $('body').css('top', '-' + scrollPosition + 'px');
+    }else {
+        // それ以外
+        $('body').css('overflow', 'hidden');
+    }
+}
+
+//bodyのスクロール固定を解除
+function bodyFixedOff() {
+    if(isiOS){
+        // iOSの場合
+        $('body').css('position', '');
+        $('body').css('top', '');
+        $(window).scrollTop(scrollPosition);
+    }else {
+        // それ以外
+        $('body').css('overflow', '');
+    }
+}
+
 var aa = [];
 var img_iti =[];
 var point_sakujo=[];
@@ -334,39 +367,6 @@ function mojihenkou() {
     createmodel(GYOSYU[fishtype],aa,4);
   }
   document.getElementById("area1").innerText = `${aa.length}`;
-}
-
-
-//モーダルを開いた時のスクロール位置を保持
-var scrollPosition;
-//iOS（iPadOSを含む）かどうかのUA判定
-var ua = window.navigator.userAgent.toLowerCase();
-var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
-
-//bodyのスクロール固定
-function bodyFixedOn() {
-    if(isiOS){
-        // iOSの場合
-        scrollPosition = $(window).scrollTop();
-        $('body').css('position', 'fixed');
-        $('body').css('top', '-' + scrollPosition + 'px');
-    }else {
-        // それ以外
-        $('body').css('overflow', 'hidden');
-    }
-}
-
-//bodyのスクロール固定を解除
-function bodyFixedOff() {
-    if(isiOS){
-        // iOSの場合
-        $('body').css('position', '');
-        $('body').css('top', '');
-        $(window).scrollTop(scrollPosition);
-    }else {
-        // それ以外
-        $('body').css('overflow', '');
-    }
 }
 
 // 画像読み込み処理
