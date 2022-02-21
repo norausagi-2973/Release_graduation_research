@@ -198,11 +198,7 @@ var point_sakujo=[];
 
 // クリックで座標を取得するやつ
 function zahyou(){
-  if(ua.indexOf('ipad') > -1){
-    document.getElementById("gazou_sentaku").style.display ="none";
-  }else{
-    document.getElementById("hyouji-3d").style.display ="none";
-  }
+  document.getElementById("hyouji-3d").style.display ="none";
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
     $('#zahyouModal').fadeOut(400, function() {
