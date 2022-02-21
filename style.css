@@ -521,7 +521,7 @@ a {
     padding: 10px 30px;
     background-color: rgb(247, 247, 247);
     height : 600px;
-    overflow : auto;
+    /* overflow : auto; */
   }
 
   .taikei-btn{
