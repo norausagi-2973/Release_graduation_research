@@ -369,22 +369,6 @@ function bodyFixedOff() {
     }
 }
 
-
-// 最初に表示される何もない黒のキャンバス
-function first_canvas() {
-  const width = 1000;
-  const height = 600;
-  const renderer = new THREE.WebGLRenderer({
-		canvas: document.querySelector('#canvas4'),
-    alpha: true
-  });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(width, height);
-  new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, width / height);
-  camera.position.set(0, 0, +1000);
-};
-
 // 画像読み込み処理
 $(function() {
   var blob = null; // 画像(BLOBデータ)
