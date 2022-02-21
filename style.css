@@ -610,24 +610,10 @@ a {
   .modal-kaisetu-left{
     display: flex;
   }
-/* } */
 
-/* @media all and (min-width: 768px) and (max-width: 1024px) { 
-}
-@media all and (min-width: 480px) and (max-width: 768px) { 
-}
-@media all and (max-width: 480px) { 
-} */
-/*------------------------------------------
-   1280-1024   - デスクトップ（デフォルトのグリッド）
-   1024-768    - タブレット横長
-   768-480     - タブレット縦長
-   480-less    - スマホ
---------------------------------------------*/
-
-/* ドラッグ&ドロップ */
+  /* ドラッグ&ドロップ */
 #gazou_sentaku{
-  height: 500px;
+  min-height: 500px;
   padding-top: 40px;
   display: flex;
   justify-content: center; 
@@ -635,8 +621,8 @@ a {
 #dragDropArea{
   background-color: #ffffff;
   border: rgb(79, 197, 252) dashed 5px;
-  height: 350px;
-  width: 700px;
+  min-height: 350px;
+  min-width: 700px;
   border-radius: 50px;
   display: flex;
   justify-content: center; 
@@ -671,13 +657,13 @@ a {
 
 /* 手順モーダル */
 .box3-white-tejun{
-  height: 320px;
-  width: 290px;
+  min-height: 320px;
+  min-width: 290px;
   background-color: rgb(255, 255, 255);
   border-radius: 30px;
 }
 .box3-mojibox-tejun{
-  width: 300px;
+  min-width: 300px;
   padding-top: 30px;
 }
 .box3-moji-tejun{
@@ -693,7 +679,22 @@ a {
   text-align: start;
 }
 .box3-tejun{
-  width: 900px;
-  height: 550px;
+  min-width: 900px;
+  min-height: 550px;
   text-align: center;
 }
+/* } */
+
+/* @media all and (min-width: 768px) and (max-width: 1024px) { 
+}
+@media all and (min-width: 480px) and (max-width: 768px) { 
+}
+@media all and (max-width: 480px) { 
+} */
+/*------------------------------------------
+   1280-1024   - デスクトップ（デフォルトのグリッド）
+   1024-768    - タブレット横長
+   768-480     - タブレット縦長
+   480-less    - スマホ
+--------------------------------------------*/
+
