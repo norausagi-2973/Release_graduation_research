@@ -164,7 +164,8 @@ var scrollPosition;
 var ua = window.navigator.userAgent.toLowerCase();
 var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
 
-console.log(ua)
+console.log(ua.indexOf('macintosh'))
+
 //bodyのスクロール固定
 function bodyFixedOn() {
     if(isiOS){
@@ -197,7 +198,11 @@ var point_sakujo=[];
 
 // クリックで座標を取得するやつ
 function zahyou(){
-  document.getElementById("hyouji-3d").style.display ="none";
+  if(ua.indexOf('ipad') > -1){
+    document.getElementById("gazou_sentaku").style.display ="none";
+  }else{
+    document.getElementById("hyouji-3d").style.display ="none";
+  }
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
     $('#zahyouModal').fadeOut(400, function() {
