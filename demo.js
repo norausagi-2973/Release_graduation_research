@@ -350,7 +350,7 @@ function mojihenkou() {
     document.getElementById("kaisetu").src = "photo/kaisetu2.png";
   }else if(aa.length == 66){
     endTime = Date.now();
-    alert("タイムは、"+(endTime - startTime)/1000 + "秒です(研究用)");
+    // alert("タイムは、"+(endTime - startTime)/1000 + "秒です(研究用)");
     aa[1][0] = 0;
     aa[1][1] = 0;
     console.log("目完了!");
