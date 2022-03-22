@@ -166,7 +166,7 @@ a {
     height: 320px;
     width: 300px;
     background-color: rgb(255, 255, 255);
-    border-radius: 50px;
+    border-radius: 10px;
   }
 
   .box3-mojibox{
@@ -207,7 +207,7 @@ a {
   .box4-white{
     height: 190px;
     width: 460px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: 20px;
     margin-right: 20px;
   }
@@ -251,7 +251,7 @@ a {
     height: 200px;
     width: 190px;
     background-color: rgb(255, 255, 255);
-    border-radius: 30px;
+    border-radius: 10px;
     margin-top: 20px;
   }
 
@@ -674,7 +674,7 @@ a {
   height: 320px;
   width: 290px;
   background-color: rgb(255, 255, 255);
-  border-radius: 30px;
+  border-radius: 10px;
 }
 .box3-mojibox-tejun{
   width: 300px;
