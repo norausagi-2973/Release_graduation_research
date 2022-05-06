@@ -198,7 +198,11 @@ var point_sakujo=[];
 
 // クリックで座標を取得するやつ
 function zahyou(){
-  document.getElementById("hyouji-3d").style.display ="none";
+  // document.getElementById("hyouji-3d").style.display ="none";
+
+  document.getElementById("gazou_sentaku").style.display ="none";
+  document.getElementById("hyouji-3d").style.display ="block";
+  
   document.getElementById("aaa").onclick = handleMouseMove;
   $('#closeModal , #modalBg').click(function(){
     $('#zahyouModal').fadeOut(400, function() {
@@ -363,8 +367,8 @@ function mojihenkou() {
     });
     var fishtype = document.getElementById('fishtype').options.value;
 
-    document.getElementById("gazou_sentaku").style.display ="none";
-    document.getElementById("hyouji-3d").style.display ="block";
+    // document.getElementById("gazou_sentaku").style.display ="none";
+    // document.getElementById("hyouji-3d").style.display ="block";
     createmodel(GYOSYU[fishtype],aa,4);
   }
   document.getElementById("area1").innerText = `${aa.length}`;
