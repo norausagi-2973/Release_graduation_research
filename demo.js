@@ -196,7 +196,7 @@ var aa = [];
 var img_iti =[];
 var point_sakujo=[];
 
-// クリックで座標を取得するやつ
+// クリックで座標を取得する
 function zahyou(){
   document.getElementById("hyouji-3d").style.display ="none";
   document.getElementById("aaa").onclick = handleMouseMove;
@@ -218,7 +218,7 @@ function zahyou(){
   });
 }
 
-// クリックで座標を四角で表示するやつ
+// クリックで座標を四角で表示する
 function zahyou2(){
   // キャンパスの要素を取得
   const canvas = document.getElementById('point-canvas');
@@ -263,8 +263,11 @@ function handleMouseMove(event) {
   aa.push([x,y]);
   mojihenkou();
 }
+// 研究用描画時間の計測
 let startTime = Date.now();
 let endTime = Date.now();
+
+// クリックする特徴点に合わせて解説画面の文字を変更
 function mojihenkou() {
   if (aa.length == 1) {
     startTime = Date.now();
@@ -355,6 +358,7 @@ function mojihenkou() {
     aa[1][1] = 0;
     console.log("目完了!");
     console.log(JSON.stringify(aa));
+    // 座標モーダルを閉じ、体型モーダルを表示
     $('#zahyouModal').fadeOut(400, function() {
       bodyFixedOff();
     });
@@ -948,7 +952,7 @@ function createmodel(gyosyu,aa,finlet,canvas_num) {
     new THREE.Face3(952,953,936),
   );
 
-  // 判定する関数
+  // 鰭の凹凸を判定する関数
   function hantei(num1,num2,num3) {
     x1 = geometry.vertices[num1].x
     y1 = geometry.vertices[num1].y
@@ -1176,13 +1180,13 @@ function createmodel(gyosyu,aa,finlet,canvas_num) {
   };
   
   //デバッグ用
-  function add_sphere(x,y,z) {
-    var s_mate = new THREE.MeshBasicMaterial( {color: "#FFFF00" } );
-    var s_geo = new THREE.SphereGeometry( 3, 3, 3 );
-    var sphere1  = new THREE.Mesh( s_geo, s_mate );
-    sphere1.position.set(x,y,z)
-    scene.add(sphere1);
-  }
+  // function add_sphere(x,y,z) {
+  //   var s_mate = new THREE.MeshBasicMaterial( {color: "#FFFF00" } );
+  //   var s_geo = new THREE.SphereGeometry( 3, 3, 3 );
+  //   var sphere1  = new THREE.Mesh( s_geo, s_mate );
+  //   sphere1.position.set(x,y,z)
+  //   scene.add(sphere1);
+  // }
 
   tick();
 
