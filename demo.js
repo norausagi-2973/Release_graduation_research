@@ -26,7 +26,8 @@ const GYOSYU = {
       var frontcurve_x = Math.sqrt( Math.pow( hire_y - sita_y, 2 ))/bairitu
       frontcurve = (-0.00000000204866590725145* Math.pow(frontcurve_x,4) + 0.00000510264781505105* Math.pow(frontcurve_x,3) - 0.0052448539047949* Math.pow(frontcurve_x,2) + 2.48663173938291*frontcurve_x + 27.2318794780676)*bairitu;
       return frontcurve;
-    }
+    },
+    finlet : true
   },
   sake : {
     aa :  [[0,0],[0,0],[-7,-39],[21,14],[24,-72],[48,20],[42,-81],[60,21],[59,-88],[99,33],[100,-103],[144,45],[149,-113],[196,56],[197,-121],[319,74],[321,-137],[423,79],[423,-131],[560,49],[563,-120],[619,33],[627,-112],[676,21],[684,-88],[725,7],[726,-71],[770,-6],[766,-68],[805,-10],[799,-80],[429,64],[505,102],[556,113],[556,63],[559,33],[702,1],[729,15],[747,23],[758,8],[762,-13],[885,24],[963,57],[935,-13],[910,-59],[928,-124],[947,-192],[855,-134],[623,-115],[679,-163],[717,-115],[733,-80],[709,-72],[484,-123],[530,-125],[584,-122],[548,-108],[496,-106],[224,-94],[314,-97],[361,-109],[313,-138],[226,-121],[61,-51],[69,-16],[69,-6]],
@@ -166,6 +167,7 @@ var isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('
 
 console.log(ua.indexOf('macintosh'))
 
+
 //bodyのスクロール固定
 function bodyFixedOn() {
     if(isiOS){
@@ -269,6 +271,7 @@ function handleMouseMove(event) {
 }
 let startTime = Date.now();
 let endTime = Date.now();
+
 function mojihenkou() {
   if (aa.length == 1) {
     startTime = Date.now();
@@ -495,6 +498,8 @@ function typeclick2() {
   var finlet = document.getElementById('finlet').checked;
   createmodel(GYOSYU[fishtype],aa,finlet,4);
 }
+
+
 
 // 本体　ここで３dモデルを作る
 function createmodel(gyosyu,aa,finlet,canvas_num) {
@@ -1210,6 +1215,7 @@ function createmodel(gyosyu,aa,finlet,canvas_num) {
       finlet: finlet,
       img_iti: img_iti
     }
+
     const fileName = num[0]+".json";
     const data = JSON.stringify(Data);
     const link = document.createElement("a");
@@ -1355,3 +1361,7 @@ function zahyou_modoru(){
   console.log(point_sakujo)
   ctx.clearRect(ii[0]-2, ii[1]-2, 8, 8);
 };
+
+
+
+
